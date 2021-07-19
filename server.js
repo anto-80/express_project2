@@ -1,10 +1,21 @@
 const express = require("express");
+const Handlebars = require('handlebars')
+const expressHandlebars = require('express-handlebars')
+const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
 const path = require('path'); 
 const {Restaurant,Menu,Item} = require('./models/index');
 
 
 
 const app = express();
+
+// setup our templating engine
+const handlebars = expressHandlebars({
+	handlebars: allowInsecurePrototypeAccess(Handlebars)
+})
+app.engine('handlebars', handlebars)
+app.set('view engine', 'handlebars')
+
 const port = 3000;
 
 app.use(express.json())
@@ -34,9 +45,15 @@ app.get('/menu/:id', async (req, res) => {
 	res.json({ menu })
 })
 
+app.get('/restaurant', async (req, res) => {
+  const restaurants = await Restaurant.findAll()
+
+  res.render('restaurants', {restaurants})
+})
+
 app.get('/restaurant/:id', async (req, res) => {
-	let restaurant = await Restaurant.findByPk(req.params.id, {include : Menu});
-	res.json({ restaurant })
+	let restaurant = await Restaurant.findByPk(req.params.id);
+	res.render('restaurant',{ restaurant })
 })
 
 
@@ -97,11 +114,6 @@ app.put("/restaurant/:id", async (req, res) => {
 
 
 
-app.get('/restaurants', async (req, res) => {
-  const allRestaurants = await Restaurant.findAll()
-
-  res.json(allRestaurants)
-})
 
 
 

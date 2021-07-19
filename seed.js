@@ -7,27 +7,32 @@ const seedRestaurant = [
   {
     name: 'AppleBees',
     location: 'Texas',
-    cuisine: 'FastFood'
+    cuisine: 'FastFood',
+    image: 'https://www.fsrmagazine.com/sites/default/files/styles/homepage_carousel_2x_640x476/public/story-images/applebees-brings-back-all-you-can-eat-favorite.jpg?itok=9GzimNWs'
   },
   {
     name: 'LittleSheep',
     location: 'Dallas',
-    cuisine: 'Hotpot'
+    cuisine: 'Hotpot',
+    image: 'https://franchiseconduit.com/wp-content/uploads/2019/04/image_5dec8c86148b02b0_md.jpg'
   },
   {
     name: 'Spice Grill',
     location: 'Houston',
-    cuisine: 'Indian'
+    cuisine: 'Indian',
+    image: 'https://spicegrillparsippany.com/wp-content/uploads/2019/06/parsippany_gallery1.jpg'
   },
   {
-    name: 'burgetking',
+    name: 'burger king',
     location: 'Dallas',
-    cuisine: 'Hotpot'
+    cuisine: 'Hotpot',
+    image: 'https://uploads.dailydot.com/2021/06/burger-king-table.jpg?auto=compress%2Cformat&ixlib=php-3.3.0'
   },
   {
     name: 'MCDS',
     location: 'Dallas',
-    cuisine: 'Hotpot'
+    cuisine: 'Hotpot',
+    image: 'https://media-cdn.tripadvisor.com/media/photo-s/0e/f6/2f/e7/our-wall-of-some-of-the.jpg'
   },
 ]
 const seedMenu = [
